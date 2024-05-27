@@ -20,6 +20,7 @@ This project is a single-page web application built using Vue.js that functions 
 
 2. **Install dependencies:**
    ```bash
+   nvm use
    npm install
    ```
 
@@ -46,4 +47,3 @@ This project is a single-page web application built using Vue.js that functions 
 3. **Navigate GIFs:**
    - Use the Previous and Next buttons to navigate through the GIFs in the slideshow.
    - Click the Close button or outside the modal to close it.
----
