@@ -1,15 +1,17 @@
 <template>
 	<header>
 		<form @submit.prevent="submit">
-			<input type="text" v-model="search.query">
+			<input type="text" v-model="search.query" placeholder="Search for GIFs">
 			<button type="submit">Search</button>
 		</form>
 	</header>
 
 	<main class="search-results">
 		<ul>
-			<li v-for="       image in images       " :key="image.id">
-				<img :src="image.images.original.url" :alt="image.alt_text">
+			<li v-for="gif in images" :key="gif.id">
+				<a href="">
+					<img class="thumbnail" v-lazyload="gif.images.original.url" :alt="gif.alt_text">
+				</a>
 			</li>
 		</ul>
 	</main>
@@ -103,11 +105,12 @@ form {
 	li {
 		width: 250px;
 		overflow: hidden;
+		margin: 5px;
 	}
 
-	img {
-		width: 100%;
-		height: 100%;
+	.thumbnail {
+		width: 250px;
+		height: 250px;
 		object-fit: cover;
 	}
 }
