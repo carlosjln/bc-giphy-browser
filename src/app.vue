@@ -1,8 +1,8 @@
 <template>
-	<div >
-		<input type="text" :value="search.query">
-		<button type="submit" @click="submit">Search</button>
-	</div>
+	<form @submit.prevent="submit">
+		<input type="text" v-model="search.query">
+		<button type="submit">Search</button>
+	</form>
 
 	<div class="search-results">
 		<ul>
@@ -22,7 +22,7 @@ export default {
 	data() {
 		return {
 			search: {
-				query: "terminator",
+				query: "",
 				results: []
 			}
 		}
