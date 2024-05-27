@@ -1,16 +1,18 @@
 <template>
-	<form @submit.prevent="submit">
-		<input type="text" v-model="search.query">
-		<button type="submit">Search</button>
-	</form>
+	<header>
+		<form @submit.prevent="submit">
+			<input type="text" v-model="search.query">
+			<button type="submit">Search</button>
+		</form>
+	</header>
 
-	<div class="search-results">
+	<main class="search-results">
 		<ul>
-			<li v-for="image in images" :key="image.id">
+			<li v-for="       image in images       " :key="image.id">
 				<img :src="image.images.original.url" :alt="image.alt_text">
 			</li>
 		</ul>
-	</div>
+	</main>
 </template>
 
 <script>
@@ -22,7 +24,7 @@ export default {
 	data() {
 		return {
 			search: {
-				query: "",
+				query: "zim invader",
 				results: []
 			}
 		}
@@ -48,7 +50,43 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+header {
+	margin-bottom: 20px;
+}
+
+form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	input {
+		height: 30px;
+		border-radius: 4px;
+		border: 1px solid silver;
+		padding: 0 8px;
+
+		&:focus-visible {
+			outline: none;
+		}
+	}
+
+	button {
+		height: 34px;
+		border-radius: 4px;
+		border: 1px solid silver;
+		font-size: 15px;
+		font-family: inherit;
+
+		background-color: #f9f9f9;
+		cursor: pointer;
+	}
+
+	input+button {
+		margin-left: 5px;
+	}
+}
+
 .search-results {
 
 	ul,
